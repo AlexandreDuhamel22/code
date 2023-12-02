@@ -1,1 +1,0 @@
-"work.tb_lecture_memoire" -nolog -debug "typical" -cc "gcc" 

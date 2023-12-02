@@ -1,3 +1,0 @@
-vhdl work "vhd/reg4b.vhd"
-vhdl work "vhd/compteur4.vhd"
-vhdl work "vhd/tb_compteur4.vhd"

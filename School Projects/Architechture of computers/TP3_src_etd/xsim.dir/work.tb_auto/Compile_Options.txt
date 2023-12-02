@@ -1,1 +1,0 @@
-"work.tb_auto" -nolog -debug "typical" -cc "gcc" 
