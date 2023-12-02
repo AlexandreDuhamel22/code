@@ -1,0 +1,117 @@
+---
+title: "Formulaire de réponse pour le test 0 -- TD-1"
+output: html_document
+---
+
+\times \times Alexandre DUHAMEL G7\times \times 
+
+\times \times \times 
+## Problème 1
+
+### Question 1
+
+\times  Déterminer la probabilité de l'événement $(N_E > k)$, pour tout $k \geq 1$. Quelle est la loi de $N_E$ ?
+
+#### Réponse :
+
+$P(N_E > k)$ = 1 - $P(N_E \le k)$ = 1 - $\sum_{i = 1}^{k} P(N_E = i)$ = 1 - $\frac{1}{6}$ $\sum_{i = 1}^{k} (\frac{5}{6})^{i-1}$ = ... = $(\frac{5}{6})^k$
+
+
+### Question 2
+
+\times  Calculer la probabilité de l'événement $(N > k)$, pour tout $k \geq 1$. Quelle est la loi de $N$ ?
+
+#### Réponse :
+
+$P(N>k) = P((N_E>k) \cup (N_R >k)$ 
+$= P(N_E>k) + P(N_R>k) - P((N_E>k) \cap (N_R>k))$ 
+$= P(N_E>k) + P(N_R>k) - P(N_E>k)\times (N_R>k)$
+$= (\frac{5}{6})^k + (\frac{6}{7})^k - (\frac{7}{5})^k$
+
+### Question 3
+
+\times  Quelle est la probabilité pour que Eva gagne ?
+
+#### Réponse :
+
+$P(N_E < N_R) = P(\cup_{i=2}^{+\infty}((N_R = i) \cap (\cup_{j=1}^{i-1}(N_E = j)))$ 
+$= \sum_{i=2}^{+\infty}P(N_R=i)P(\cup_{j=1}^{i-1}(N_E=j))$
+$= \sum_{i=2}^{+\infty}(P(N_R=i) \times \sum_{j=1}^{i-1}P((N_E=j)))$
+$= \sum_{i=2}^{+\infty} (\frac{1}{7}(\frac{6}{7})^{i-1} \times \sum_{j=1}^{i-1}\frac{1}{6}(\frac{5}{6})^{i-1}) = ... = \frac{1}{2}$
+
+
+### Question 4
+
+\times   Quelle est la probabilité de match nul ?
+
+#### Réponse :
+
+$P(N_E = N_R) = P(\cup_{i=1}^{+\infty}(N_E = i \cap N_R = i))$ 
+$= \sum_{i=1}^{+\infty}P(N_E=i)\times P(N_R=i) \\%$
+$ $
+$\\%$ Avec $P(N_E=i) =  (\frac{5}{6})^{i-1} \times \frac{1}{6}$ et $P(N_R=i) = (\frac{6}{7})^{i-1} \times \frac{1}{7} \\%$ suivants des lois géométriques, on a :
+$P(N_E = N_R) = \frac{1}{12}$
+
+### Question 5
+
+\times  Calculer la probabilité que la partie a duré moins de 3 manches sachant qu'Eva a gagné.
+
+#### Réponse :
+
+$P(N<3 \mid N_E<N_R) = 1 - P(N>2 \mid N_E<N_R)$
+$= 1 - P(N_E<N_R \mid N>2) \times  \frac{P(N>2)}{P(N_E<N_R)}$ 
+$= 1 -  P(N_E>2) \times  \frac{P(N>2)}{P(N_E<N_R)}$
+$= 1 - (\frac{5}{6})^2 \times \frac{(\frac{5}{6})^2 + (\frac{6}{7})^2 - (\frac{7}{5})^2}{\frac{1}{2}}$
+$= ...$
+
+
+\times \times \times 
+## Problème 2
+
+### Question 1
+
+\times   Calculer la probabilité que la variable aléatoire $W$ soit inférieure ou égale à $1/3$.
+
+#### Réponse :
+
+$P(W \le \frac{1}{3}) = P(W \le \frac{1}{3} \cap U <\frac{1}{4}) + P(W \le \frac{1}{3} \cap U \ge \frac{1}{4})$
+$= P(W \le \frac{1}{3} \mid U <\frac{1}{4})\times P(U< \frac{1}{4}) + P(W \le \frac{1}{3} \mid U \ge \frac{1}{4})\times P(U \ge \frac{1}{4})$
+$= P(V \le \frac{1}{3})\times P(U< \frac{1}{4}) + P(\sqrt{V} \le \frac{1}{3} )\times P(\frac{1}{4} \le U \le 1)$
+$= \frac{1}{3}\times \frac{1}{4} + \frac{1}{9}\times \frac{3}{4}$
+$= \frac{1}{6}$
+
+### Question 2
+
+\times   Calculer l'espérance de la variable aléatoire $W^2$.
+
+#### Réponse :
+
+D'après le théorème de transfert : 
+$E[W^2] = \sum_{k=0}^{+\infty} k^2 P(W=k)$
+
+Or comme, $P(W \ge k) = P(W=k) + P(W \ge k+1)$ 
+$\Longrightarrow P(W=k) = P(W \ge k) - P(W \ge k+1)$
+
+On a telescopant les deux sommes : <br>
+$E[W^2] = \sum_{k=0}^{+\infty}(-2k+1)P(W \ge k) = \sum_{k=0}^{+\infty}(-2k+1)(1-P(W \le k+1))$
+
+En généralisant la première question : <br>
+$P(W \le k) = P(W \le k \cap U <\frac{1}{4}) + P(W \le k \cap U \ge \frac{1}{4})$
+$\qquad \qquad \: = P(W \le k \mid U <\frac{1}{4})\times P(U< \frac{1}{4}) + P(W \le k \mid U \ge \frac{1}{4})\times P(U \ge \frac{1}{4})$
+$\qquad \qquad \: = P(V \le k)\times P(U< \frac{1}{4}) + P(\sqrt{V} \le k )\times P(U \ge \frac{1}{4})$
+
+Ainsi :
+$E[W^2] = \frac{5}{8}$
+
+\times \times \times 
+## Problème 3
+
+
+### Question 1
+
+\times   Calculer l'espérance de la variable aléatoire $Z$.
+
+#### Réponse :
+
+Par linéarité : $E[Z] = E[X+Y] = E[X] + E[Y] = \int_{0}^{1}tP(X=t)dt + \int_{0}^{x}tP(Y=t \mid X=x)dt$
+$= \int_{0}^{1}tdt + \int_{0}^{x}tP(Y=t \mid X=x)dt$ ...

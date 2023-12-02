@@ -1,0 +1,147 @@
+---
+title: 'TD7 : Probabilités appliquées'
+output:
+  html_document: default
+  pdf_document: default
+---
+
+Groupe-7 :
+Trinôme correcteur :  n°4 $\longrightarrow$ Zephirin, Arthur, Mathieu  
+Trinôme rapporteur :  n°3 $\longrightarrow$ Alexandre, Théo, Adnane
+  
+### QUESTIONS DE COURS
+  
+$\mathbb{V}(X) = \mathbb{E}[(X - \mathbb{E}(X))^2] = \mathbb{E}(X^2) - E(X)^2$  
+  
+Loi normale :
+$X \sim \mathcal{N}(\mu, \sigma^2)$ lorsque $\forall x \in \mathbb{R}$, $f_X(x) = \dfrac 1{\sqrt{2\pi}\sigma}e^{-\dfrac 12\left(\dfrac {x-\mu}\sigma\right)^2}$  
+  
+Théorème de transfert :
+$\mathbb{E}(\Phi(X)) = \int_{x\in \mathbb{R}}\Phi(x)f_X(x)dx$  
+  
+### EXERCICE 1
+  
+1. $X\sim\mathcal{N}(0, 1)$  
+$\Phi(t) = \mathbb{E}(\exp(tX)$ et $g_t:x\mapsto\exp(tx), \; t\in\mathbb{R}$  
+$$\begin{aligned}
+\Phi(t) &= \int_{x\in\mathbb{R}}f_X(x)g_t(x)dx\\
+&= \int_{x\in\mathbb{R}}\dfrac {\exp\left(tx-\frac 12\left(\frac {x-\mu}\sigma\right)\right)}{\sqrt{2\pi}\sigma}dx\\
+&= \int_{x\in\mathbb{R}}\dfrac {\exp\left(tx-\frac {x^2}2\right)}{\sqrt{2\pi}}dx\\
+&\overset{x=y+t}= \exp\left(\dfrac {t^2}2\right)\underbrace{\dfrac 1{\sqrt{2\pi}}\int_{-\infty}^\infty\exp\left(-\dfrac {y^2}2\right)}_{=1\text{ (densité de loi normale)}}dy\\
+&=\exp\left(\dfrac {t^2}2\right)
+\end{aligned}$$
+  
+2. $\mathbb{V} = \mathbb{E}(X^2)-\mathbb{E}(X)^2 = \Phi''(0)-\Phi'(0)^2 = 1$  
+$\Phi'(t)=t\exp\left(\dfrac {t^2}2\right)$  
+$\Phi''(t)=\exp\left(\dfrac {t^2}2\right)+t^2\exp\left(\dfrac {t^2}2\right)$  
+  
+3. $\mathbb{E}(X^4) = \Phi^{(4)}(0) = 3$
+$\Phi^{(3)}(t) = t\exp\left(\dfrac {t^2}2\right)+2t\exp\left(\dfrac {t^2}2\right)+t^3\exp\left(\dfrac {t^2}2\right)$
+$\Phi^{(4)}(t) = 3\exp\left(\dfrac {t^2}2\right)+6t^2\exp\left(\dfrac {t^2}2\right)+t^4\exp\left(\dfrac {t^2}2\right)$  
+  
+### EXERCICE 2
+ 
+$X = \mathbf{1}_{\left(u<\frac 13\right)}V+\mathbf{1}_{\left(u\ge\frac 23\right)}(1+V)$
+$$
+X=
+  \begin{cases}
+    V &\text{si } U \in\left[0, \dfrac13\right[\\
+    O &\text{si } U\in\left[\dfrac13, \dfrac23\right[\\
+    1+V &\text{si } U\in\left[\dfrac23, 1\right]
+  \end{cases}
+$$
+  
+1. $N_k=U\in\left[\dfrac k3, \dfrac{k+1}3\right[$
+$$
+\begin{aligned}
+\mathbb{E}(X) &= \sum_{k=0}^2\mathbb{E}(X|N_k)\mathbb{P}(N_k) = \dfrac13\mathbb{E}(V)
++\dfrac13\times0+\dfrac13\mathbb{E}(1+V) = \dfrac13+\dfrac23\mathbb{E}(V) = \dfrac23\\
+\mathbb{V}(X) &= \mathbb{E}(X^2)-\mathbb{E}(X)^2\\
+\mathbb{E}(X^2) &= \mathbb{E}\left(\left(V\times\mathbf{1}_{N_0}+0+(1+V)\times\mathbf{1}_{N_2}\right)^2\right)\\
+&= \mathbb{E}(V^2\times\mathbf{1}_{N_0}+\mathbf{1}_{N_2}+2V\times\mathbf{1}_{N_2}+V^2\times\mathbf{1}_{N_2})\\
+\mathbb{E}(V^2) &= \int_0^1t^2dt = \dfrac13\\
+\mathbb{E}(X^2) &= \dfrac13\mathbb{E}(V^2)+\dfrac13\mathbb{E}(1)+\dfrac23\mathbb{E}(V)+\dfrac13\mathbb{E}(V^2) = \dfrac23\times\dfrac13+\dfrac23\times\dfrac12+\dfrac13 = \dfrac89\\
+\mathbb{V}(X) &= \dfrac89-\left(\dfrac23\right)^2 = \dfrac49
+\end{aligned}
+$$
+  
+2. $X(\Omega) = \left[0, 2\right]$
+Soit $t\in\left[0, 2\right]$
+$$
+\begin{aligned}
+\mathbb{P}(X\le t) &= \dfrac13\mathbb{P}(V\le t)+\dfrac13\mathbb{P}(0\le t)+\dfrac13\mathbb{P}(1+V\le t)\\
+&= \dfrac13\left(\mathbf{1}_{t\in[0,2]}\times t+\mathbf{1}_{t\in]1,2]}\right)+\dfrac13+\dfrac13\left(\mathbf{1}_{t\in[0,1]}\times0+\mathbf{1}_{t\in]1,2]}\right)\\
+&= \dfrac13(1+t)
+\end{aligned}
+$$
+
+
+
+
+### EXERCICE 3
+
+#### Question 1
+ Soit $t \in [1, e]$,
+
+$\mathbb{P}(X \leq t) = \mathbb{P}(e^U \leq t) = \mathbb{P}(U\leq \ln(t)) = \ln(t)$
+
+Car $\ln([1, e]) = [0, 1]$ et  $U$ est uniforme sur $[0, 1]$
+De plus, si $t \in ]-\infty, 1], \mathbb{P}(X \leq t) = 0$ et si $t \in [e, \infty[, \mathbb{P}(X \leq t) = 1$
+
+On pose $F(t) = \mathbb{P}(X \leq t)$
+
+$F$ est dérivable par morceaux, donc $X$ admet une densité de probabilité, qui est $F'$
+
+$F'(t) = \frac{1}{t}$ si $t \in [1, e]$ et $0$ sinon
+
+On a donc : $$\mathbb{E}(X) = \int_\mathbb{R}tF'(t)dt = \int_1^edt = e-1$$
+
+De plus, $$\mathbb{E}(X^2) = \int_\mathbb{R}t^2F'(t)dt = \int_1^etdt = \frac{1}{2}(e^2-1)$$
+
+Ainsi, $$\mathbb{V}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 = \frac{1}{2}(e^2-1) - e+1$$
+
+
+#### Question 2
+
+$U$ est uniforme sur $[0, 1]$ donc a une densité égale à $1$
+
+Si $s = 0, \phi(s) = \mathbb{E}(1) = 1$
+Sinon, on calcule $\phi(s) = \mathbb{E}(e^{sU})$ en utilisant le théoreme de transfert :
+$$\mathbb{E}(e^{sU}) = \int_0^1e^{st}dt = \frac{e^s-1}{s}$$
+
+Soit $\alpha > 0$, alors $\phi'(\alpha) = \frac{e^\alpha(\alpha-1)+1}{\alpha^2}$
+
+
+On remarque que :
+$$\phi'(\alpha) = \frac{d}{d\alpha}\mathbb{E}\left(e^{\alpha U}\right) = \mathbb{E}\left(\frac{d}{d\alpha}e^{\alpha U}\right) = \mathbb{E}\left(Ue^{\alpha U}\right) = \mathbb{E}\left(X^\alpha\ln X\right) = \mathbb{E}(Y)$$
+Donc, $\mathbb{E}(Y) = \frac{e^\alpha(\alpha-1)+1}{\alpha^2}$
+
+
+
+
+### EXERCICE 4
+
+#### Question 1
+
+$$\begin{aligned}
+F_Z(t) &= \mathbb{P}(Z \le t) \\
+&= \int_{-\infty}^t f(z)dz \\
+ &= \int_0^{\min(1, t)} zdz + \frac{1}{2}\mathbb{1}_{t \geq 1}\int_1^t e^{1-z}dz \\
+ &= \frac{1}{2}(\min(1,t))^2 + \frac{1}{2}\mathbb{1}_{t \geq 1}(1-e^{1-t}) \\
+ &= \frac{1}{2}\min(1,t^2) + \frac{1}{2}\max(0, 1-e^{1-t})
+\end{aligned}$$
+
+Soit $t > 0$
+$$F_1(t) = \mathbb{P}(Y_1 \leq t) = \mathbb{P}(e^{-X/2} \leq t) = \mathbb{P}(X > 2\ln t) = 1 - F(2\ln t)$$
+<br>
+<br>
+
+On peut échantillonner une VAC X à partir d'une loi continue, en connaissant : $\begin{cases} F_X(t)\\ F_X^{-1}(t)\\ \end{cases}$ <br>
+<u>NB</u> : cela s'appelle 'inversion' d'une VA.
+
+En étudiant : $Y = F_X^{-1}(U)$ :
+
+$F_Y(t) = \mathbb{P}(F_X^{-1}(U) \le t) = \mathbb{P}(U \le F_X(t)) = F_X(t)$ 
+
+On retrouve bien la fonction de répartition de X.
+

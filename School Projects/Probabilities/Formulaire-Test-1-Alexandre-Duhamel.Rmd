@@ -1,0 +1,245 @@
+---
+title: "Formulaire de réponse pour le test 1"
+output: html_document
+---
+
+**Alexandre Duhamel Groupe 7**
+
+
+
+***
+### Question 1
+
+* Calculer la probabilité pour que le candidat réussisse l’examen.
+
+#### Réponse :
+Pour que le candidat réussisse l'examen, il doit réussir les 10 épreuves.
+Sa probabilité de réussir une épreuve est de 1 - 0,02 = 0,98.
+En supposant ses performances sur chaques épreuves indépendantes :
+$\boxed{P('réussir \; l'examen') = 0,98^{10} \approx 0,817}$
+
+* Déterminer l'espérance du nombre de candidats réussissant l'examen.
+
+#### Réponse :
+
+$E('tous \; les \; élèves \; réussissent \; l'examen') = P('réussir \; l'examen') \times n$ <br>
+$\qquad \qquad \qquad \qquad  \qquad \qquad \qquad \quad \; \; \approx 0,817 \times 240$ <br>
+$\qquad \qquad \qquad \qquad  \qquad \qquad \qquad \quad \; \;  \approx 196,1$ <br>
+$\fbox{On peut donc éspérer que 196 étudiants passent le semestre.}$
+
+
+
+***
+### Question 2
+
+* Calculer les probabilités P($N = i$), pour tout $i$ de 1 à 4.
+
+#### Réponse :
+
+On pose $X$ : "rang où le jeu s'arrête" <br>
+On a donc $X = (N_1^k \le N_2^k) \cap (N_1^{k-1} \ge N_2^{k-1})$  <br>
+avec $N_{1 \: ou \: 2}^k$ : "avoir $N_1 \: ou \: N_2$ au rang k"
+
+$P(N=i) = P(\cup_{n=1}^{+ \infty}(N = i \: \cap X = n))$ <br>
+$\qquad \quad \; \: \: = P(\cup_{n=1}^{+ \infty}(N = i \: \cap (N_1^k \le N_2^k) \cap (N_1^{k-1} \ge N_2^{k-1})$ <br>
+$\qquad \quad \; \: \: = \frac{i}{10}$ <br>
+
+On a donc : 
+$\boxed{P(N=i) = \frac{i}{10}}, \quad \forall i \in [[1,4]]$
+
+
+
+***
+### Question 3
+
+* Calculer la probabilité de l'événement $G$ sachant que le candidat change de porte. 
+* Calculer la probabilité de l'événement $G$ sachant que le candidat conserve son choix initial.
+
+#### Réponse :
+
+On pose B : "Le candidat à choisi la <b><i>bonne</i></b> porte au premier tour". <br>
+On a $B$ et $\overline{B}$ qui décrit l'univers.
+
+* S'il change de porte, la proba de gagner est : <br>
+$P(G) = P(G \mid B) P(B) + P(G \mid \overline{B}) P(\overline{B})$ <br>
+$\qquad \: = 0 \times \frac{1}{3} +  1 \times \frac{2}{3}$ <br>
+$\qquad \: = \boxed{\frac{2}{3}}$
+
+* S'il ne change pas de porte, la proba de gagner est : <br>
+$P(G) = P(G \mid B) P(B) + P(G \mid \overline{B}) P(\overline{B})$ <br>
+$\qquad \: = 1 \times \frac{1}{3} +  0 \times \frac{2}{3}$ <br>
+$\qquad \: = \boxed{\frac{1}{3}}$
+
+
+
+***
+### Question 4
+
+* Le candidat opte a priori pour une stratégie aléatoire. Il change de porte avec la probabilité $p = 1/3$. Puis il joue et gagne le jeu. Quelle est la probabilité que le candidat ait changé de porte ?
+
+#### Réponse :
+
+Soit $C$ : "changer de porte" <br>
+$P(C \mid G) = P(G \mid C) \times \frac{P(C)}{P(G)}$, avec la formule de Bayes <br>
+
+Or, <br>
+$P(G) = P(G \mid B) P(B) + P(G \mid \overline{B}) P(\overline{B})$ <br>
+$\qquad \: = \frac{2}{3} \times \frac{1}{3} +  \frac{1}{3} \times \frac{2}{3}$ <br>
+$\qquad \: = \frac{4}{9}$ <br><br>
+On a donc : <br>
+$\boxed{P(C \mid G) = \frac{2}{3} \times \frac{1}{3} \times \frac{9}{4} = \frac{1}{2}}$
+
+
+
+***
+### Question 5
+
+* Calculer la valeur médiane de la variable $X$.
+
+#### Réponse :
+$N(\Omega ) = [[1,3]]$ <br>
+$U(\Omega ) = [0,1]$
+donc $X(\Omega ) = [0,3]$ <br><br>
+
+$\forall x \in [0,3]$, <br>
+$P( X \le x) = P(U \times N \le x)$ <br>
+$\qquad \quad \; \; \;  = P(U \le x \cap \: N=1) +  P(2U \le x \cap \: N=2) +  P(3U \le x \cap \: N=3)$, d'après la formule des probas totales sur N <br>
+$\qquad \quad \; \; \;  = P(U \le x) \times P(N=1) +  P(2U \le x) \times P(N=2) +  P(3U \le x) \times P(N=3)$, par indépendance de $U$ et $N$ <br>
+$\qquad \quad \; \; \;  = \frac{1}{2}x + \frac{1}{3} \frac{x}{2} + \frac{1}{6} \frac{x}{3}$ <br>
+$\qquad \quad \; \; \;  = \frac{13}{18}x$ <br><br>
+
+La médiane correspond à la valeur pour laquelle l'air à gauche sous la courbe de X est égale à celle de droite :
+
+$P(X \le x) = \frac{1}{2}$ <br>
+$\Rightarrow \frac{13}{18}x = \frac{1}{2}$ <br>
+$\Rightarrow x = \frac{9}{13}$ <br><br>
+
+$\boxed{la \; médiane \; vaut \;  \frac{9}{13}}$
+
+
+
+***
+### Question 6
+
+* Montrer que la loi de la variable $Z_n = \min\limits_{i = 1, \dots, n} X_i$ est caractérisée par
+
+$$
+  \forall t > 0 , \quad {\rm P} (Z_n > t) =  \exp(- n \mu t), \quad n \geq 1
+$$ 
+
+#### Réponse :
+
+$P(Z_n > t) = P(min(X_i >t))$, pour $i \in [[1,n]]$ <br>
+$\qquad \quad \; \; \: \: = P(X_1 >t \cap X_2 >t \; \cap ... \cap X_n >t)$ <br>
+$\qquad \quad \; \; \: \: = P(X_1 >t) \times P(X_2 >t) \times ... \times P(X_n >t)$, par indépendance <br>
+$\qquad \quad \; \; \: \: = (e^{- \mu t})^n$ <br><br>
+$\boxed{P(Z_n > t) = e^{- n \mu t}}$ 
+
+<br>
+
+* Calculer la probabilité de l'événement $(Z_N > 1)$
+
+#### Réponse :
+
+$P(Z_N > 1) = \sum_{n=0}^{+ \infty} P(N=n \: \cap \: Z_n > 1)$ <br>
+$\qquad \qquad \; \: = \sum_{n=0}^{+ \infty} P(N=n) \times P(Z_n > 1)$, par indépendance <br>
+$\qquad \qquad \; \: = \sum_{n=1}^{+ \infty} \frac{\lambda ^n}{n!} e^{- \lambda} \times e^{- \mu n}$, par définition de $P(Z_n >t)$ <br>
+$\qquad \qquad \; \: = \sum_{n=1}^{+ \infty} \frac{e^{- 1 - \mu n}}{n!}$ <br>
+$\qquad \qquad \; \: = e^{-1} \sum_{n=1}^{+ \infty} \frac{(e^{- \mu})^n}{n!}$ <br>
+$\qquad \qquad \; \: = \frac{(e^{e^{- \mu}} - 1)}{e}$ <br>
+
+On a donc : <br>
+$\boxed{P(Z_N > 1) = \frac{(e^{e^{- \mu}} - 1)}{e}}$
+
+
+
+***
+### Question 7
+
+* Déterminer la loi de la variable $Z$. Donner son espérance.
+* Exprimer la relation mathématique liant la variable $Y$ aux variables $Z$ et $X$.
+
+#### Réponse :
+
+On a déjà que : <br>
+$\boxed{X(\Omega) = [[0,20]] \\ P(X=k) = \binom{20}{k} (\frac{2}{3})^k(\frac{1}{3})^{20-k}}$ <br><br>
+
+On défini ici l'évènement $A$ : "Le joueur touche la cible au $1^{er}$ ou au $2^{nd}$ tir" <br>
+Ainsi on introduit respectivement les deux évènements $1^{er} / 2^{nd}$ : "Le joueur touche la cible au $1^{er}$ / $2^{nd}$ tir respectivement" <br><br>
+$P(A) = P(1^{er} \cup 2^{nd})$ <br>
+$\quad \; \; \; \; = P(1^{er}) + P(2^{nd}) - P(1^{er} \cap 2^{nd})$, d'après la formule du crible <br>
+$\quad \; \; \; \; = P(1^{er}) + P(2^{nd}) - P(1^{er}) \times P(2^{nd})$, par indépendance des tirs <br>
+$\quad \; \; \; \; = \frac{2}{3} + \frac{2}{3} - (\frac{2}{3} \times \frac{2}{3})$ <br>
+$\quad \; \; \; \; = \frac{8}{9}$ <br>
+
+C'est à dire que $Z$ suit une loi binomiale : <br>
+$\boxed{Z \sim \beta (20,\frac{8}{9}) \\ P(Z=k) = \binom{20}{k}(\frac{8}{9})^{k}(\frac{1}{9})^{20-k}}$
+
+* On a directement que : $Y = Z-X$
+
+
+
+***
+### Question 8
+
+* Déterminer la loi de la variable $Y$. Donner son espérance.
+* Pour tout $l = 0, ..., n-k$, donner (sans calcul) la probabilité conditionnelle <br> $\pi_{k,l} = P(Y=l \mid X = k)$
+* Donner l’espérance de la loi conditionnelle de la variable $Y$ sachant $X= k$, $k = 0,...,n$.
+
+#### Réponse :
+
+* On défini ici l'évènement $T_k$ = 'L'archer k touche la cible au $2^{nd}$ tir et il ne l'a pas touché au $1{er}$' <br>
+$P(T_k) = P(2^{nd}\cap\overline{1^{er}}) = P(2^{nd})P(\overline{1^{er}}) = pq = \frac{2}{9}$, par indépendance des tirs <br><br>
+$Y$ est donc la VA qui compte le nombre de succès $E_i$ lors de n épreuves de Bernouilli indépendantes <br><br>
+C'est à dire que $Y$ suit une loi binomiale : <br>
+$\boxed{Y(\Omega) = [[0,20]] \\ Y\sim \beta(20, \frac{2}{9})}$
+<br>
+On a donc, <br>
+$\boxed{E[Y]=npq=\frac{280}{81}}$ <br>
+Son éspérence vaut donc : <br>
+$\boxed{E[Z] = n \times p= \frac{40}{3} \approx 13,3}$  , avec $p = \frac{2}{3}$
+
+* $\boxed{\pi_{k,l} = P(Y=l \mid X = k) \\ \quad \; \; = \binom{20-k}{l} \times (\frac{2}{3})^{l} \times (\frac{1}{3})^{20-k-l}}$
+
+* $\boxed{E[Y \mid X=k] = p*(20-k) = \frac{2}{3}(20-k)}$
+
+
+
+***
+### Question 9
+
+* Donner une relation simple liant ${\rm E}[XY]$ à l'espérance d'une fonction simple de $X$ et la valeur de cette espérance (une ligne).
+
+#### Réponse :
+
+$E[XY] = E[E[XY \mid X]]$ <br>
+$\qquad \; \; \; = \sum_{k=0}^{+\infty} E[EX \mid X = k] \times P(X=k)$ <br>
+$\qquad \; \; \; = \sum_{k=0}^{+\infty} k \times E(Y \mid X = k) \times P(X=k)$ <br>
+$\qquad \; \; \; = \sum_{k=0}^{+\infty} p \times n \times k \times P(X=k) - \sum_{k=0}^{+\infty} p \times k^2 \times P(X=k)$, avec la question prcédente <br>
+$\qquad \; \; \; = p(20 E[X] - E[X^2])$ <br><br>
+On a donc :
+$\boxed{E[XY] = p(20 E[X] - E[X^2]) = \frac{1520}{27}}$, car $E[X] = \frac{40}{3}$ (loi binomiale(20,$\frac{2}{3}$)), $p = \frac{2}{3}$ et  $E[X^2] = \frac{1640}{9}$
+
+
+
+***
+### Question 10
+
+* Calculer la variance de la variable aléatoire $Z$. En déduire la covariance du couple $(X,Y)$ et retrouver le résultat précédent (une ligne).
+
+#### Réponse :
+
+$\boxed{V(Z) = 20 \times p' \times (1-p') = \frac{160}{81} \approx 1,98}$, avec $p' = \frac{8}{9}$ <br><br>
+
+De plus on remarque que : <br>
+$V(Z) = V(X+Y) = V(X) + V(Y) + 2cov(X,Y)$ <br>
+On a donc : <br> 
+$cov(X,Y) = \frac{V(Z) - V(X) - V(Y)}{2}$ <br>
+$\qquad \quad \; \; \: = 10p'(1-p') - 10p(1-p) -10pq(1-pq)$, avec $p = \frac{2}{3}$ <br>
+$\qquad \quad \; \; \: = - \frac{80}{27}$ <br>
+$\qquad \quad \; \; \: \approx -2,96$
+
+On a donc : $\boxed{cov(X,Y) = 10p'(1-p') - 10p(1-p) -10pq(1-pq) \approx -2,96}$ <br><br>
+
+Et : $\boxed{E[XY]  = cov(X,Y) +  E[X]E[Y] = \frac{1520}{27}}$ <br><br>
+On retrouve bien le résultat précédent ! :)

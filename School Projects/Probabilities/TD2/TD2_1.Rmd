@@ -1,0 +1,147 @@
+---
+title: "TD2 : Probabilités appliquées"
+output: html_document
+---
+
+<font size="5"> Groupe-7 </font> <br>
+<font size="3"> Trinôme correcteur :  n°3 -> Théo, Alexandre, Adnane </font> <br>
+<font size="3"> Trinôme rapporteur :  n°4 -> Zephirin, Arthur, Mathieu </font> 
+
+<hr>
+
+<font size="7"> <b> Partie 1 :</b> </font> 
+
+<br>
+
+<font size="5"> <u> Question de cours :</u> </font> 
+<br>
+
+1. <u>Hypothèses</u> : minimum de k épreuves de Bernoulli indépendantes :
+<br>
+$X(\Omega)= \mathbb{N}^*$
+<br>
+$X \sim Géom(p) : P(X=k) = p(1-p)^{k-1}$
+
+2. <u>Hypothèses</u> : somme de n épreuves de Bernoulli indépendantes :
+<br>
+$X(\Omega)= [[0,n]]$
+<br>
+$X \sim Bin(n,p) : P(X=k) = \binom{n}{k} p^k(1-p)^{n-k}$
+<br>
+
+3. $E_{géo}[X] = \frac{1}{p}$ et $E_{bin}[X] = np$ 
+<br><br><br>
+
+
+<font size="5"> <u> Exercice 1 :</u> </font> 
+<br>
+
+1. $X(\Omega)= \mathbb{N}^*$
+On cherche le 1$^{er}$ succès, c'est donc une loi géométrique : X $\sim$ Géom(p) <br>
+L'espérance vaut : E[X] = $\frac{1}{p}$ = 4 
+
+<br>
+
+2. On intuite facilement que : <br>
+$\forall i \in [[0,3]], \; \pi_i = P(X=i+1 \mid X>i) = \frac{1}{4-i}$ <br><br>
+Calculons la loi de X : <br>
+$P(X=1) = \frac{1}{4}$ <br>
+$P(X=2) = \frac{3}{4} \times \frac{1}{3} = \frac{1}{4}$ <br>
+$P(X=3) = \frac{3}{4} \times \frac{2}{3} \times \frac{1}{2} = \frac{1}{4}$ <br>
+$P(X=4) = \frac{3}{4} \times \frac{2}{3} \times \frac{1}{2} \times 1 = \frac{1}{4}$ <br><br>
+D'une autre manière, $\forall i \in [[1,4]] \;$ on a : <br>
+$\quad \quad \; \pi_{i-1} = P(X=i \mid X>i-1) = \frac{P(X=i)}{1-P(X \le i-1)}$
+$\iff P(X=i) = \pi_{i-1} \times(1-P(X\le i-1)) = \frac{1}{4}$ <br><br>
+On reconnaît une loi uniforme : $U_X([[1,4]])$ <br>
+On a donc $E_{unif}[X] = \frac{4+1}{5} = \frac{5}{2}$
+
+<br>
+
+3. On intuite facilement que : <br>
+$P(X=1) = \frac{1}{4}$ <br>
+et que : <br>
+$\rho_i = P(X>i+1 \mid X>i) = \frac{2}{3}$ <br><br>
+Soit $i \ge 2 \:$ : <br>
+$P(X=i) = P(X=i \mid X>i-1) \times P(X>i-1)$ <br>
+$\qquad \quad \; \; = P(X=i \mid X>i-1) \times P(X>i-1 \mid X>i-2) \times ... \times P(X>1)$ <br>
+$\qquad \quad \; \; = \frac{1}{3} \times \frac{2}{3}^{i-2} \times \frac{3}{4}$ <br>
+$\qquad \quad \; \; = \frac{1}{4} (\frac{2}{3})^{i-2}$
+
+<br>
+
+4. On a déjà que : <br>
+$Z(\Omega) = \mathbb{N}^*$ et $X(\Omega) = \mathbb{N}^*$ <br><br>
+Et : <br>
+$P(Z=k) = P(Y \times G = k-1)$ <br>
+$\qquad \quad \; \; = P(Y \times G = k-1 \mid Y=1) \times P(Y=1)$
+$+ P(Y \times G = k-1 \mid Y=0) \times P(Y=0)$ 
+<br>
+Or, <br>
+$P(Z=1) = P(G=0) \times P(Y=1) + P(Y=0) = \frac{1}{4}$
+$P(Z=k) = P(G=k-1) \times \frac{3}{4}+ 0 = \frac{1}{4} (\frac{2}{3})^{k-2}$
+<br>
+Donc : X suit la même loi que Z. <br><br>
+Et : 
+$E[X] = E[1+Y \times G] = 1+E[Y \times G]$ <br>
+$\qquad \quad \; \; = 1 + E[Y] \times E[G] \;$ par indépendance <br>
+$\qquad \quad \; \; = 1 +\frac{3}{4} \times 3$ <br>
+$\qquad \quad \; \; = \frac{13}{4}$
+<br><br><br>
+
+
+<font size="5"> <u> Exercice 2 :</u> </font> 
+<br>
+
+On a : $X \sim Géom(10^{-6})$ <br>
+Pour calculer la probabilité qu'aucune fusée ne décolle au cours des $10^6$ premiers lancers : <br>
+On pose $X_i$ = "la fusée ne décole pas à l'étape i" et on prend n = $10^6$, si bien que : <br>
+$P(X>n) = P(\cap_{i=1}^{n} X_i) = \prod_{i=1}^{n}P(X_i) = (1-\frac{1}{n})^n \approx \frac{1}{e}$
+<br><br>
+<hr>
+
+<font size="7"> <b> Partie 2 :</b> </font> 
+
+<br>
+
+<font size="5"> <u> Exercice 1 :</u> </font> 
+<br>
+
+1. $x \in [[1,36]]$ <br>
+En faisant la division euclidienne de x-1 par 6, $\exists q \in N$ et $r<6$ tels que : <br>
+$x-1 = 6q + r \Rightarrow x = 6q + (r+1)$ <br>
+On a nécessairement $q<6$. <br>
+En posant : $r^* = r+1$ et $q^* = q+1$ tels que <br> $r^* \in [[1,6]], \; q^* \in [[1,6]]]$ <br>
+On a bien : $x = 6(q^*-1) + r^*$
+
+<br>
+
+2. $X(\Omega) = [[1,36]]$ <br>
+$X = 6(N_1-1) + N_2$ <br>
+Soit $k \in [[1,36]]$ <br>
+$P(X=k) = P(6(N_1-1) + N_2 = 6(q^*-1) + r^*)$ <br>
+$\qquad \quad \; \; = P(N_1 = q^{*} \cap \: N_2 = r^*)$ <br>
+$\qquad \quad \; \; = P(N_1 = q^{*}) \times P(N_2 = r^*)$ <br>
+$\qquad \quad \; \; = \frac{1}{36}$ <br><br>
+On lance les 2 dés jusqu'à avoir un chiffre entre 1 et 19 (on rejette les valeurs au dessus). <br>
+On pose X : le nombre de lancers des 2 dés si bien que $X \sim Géo(\frac{19}{36})$ <br>
+On a donc : $E[X] = \frac{36}{19} = \frac{coût}{2}$
+
+<br>
+
+3. 1 dé -> [[1,6]] <br>
+2 dés -> [[1,36]] <br>
+3 dés -> [[1,$6^3$]] <br>
+........... <br>
+On peut simuler un dé à moins de $6^k$ faces avec k lancers de dés à 6 faces.
+
+
+
+
+
+
+
+
+
+
+
+

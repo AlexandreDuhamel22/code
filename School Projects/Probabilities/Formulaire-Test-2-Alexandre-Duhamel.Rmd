@@ -1,0 +1,212 @@
+---
+title: "Formulaire de réponse pour le test 2"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+**Alexandre Duhamel Groupe n°7**
+
+------------------------------------------------------------------------
+
+### Question 1
+
+-   Calculer la probabilité de battre un record à l'épreuve $m$
+
+#### Réponse :
+
+$\begin{aligned} \mathbb{P}(X_m > \underset{i<m}{max}(X_i)) &= \mathbb{P}(X_m > X_{m-1} \; \cap \; X_m > X_{m-2} \; \cap \; ... \; \cap \; X_m > X_1) \\ &\overset{indep}= \mathbb{P}(X_m > X_{m-1}) \; \times \; \mathbb{P}(X_m > X_{m-2}) \; \times \; ... \; \times \; \mathbb{P}(X_m > X_{1})\\ &= \prod\limits_{i=1}^{m-1} \mathbb{P}(X_m>X_i) \\ &=  \left(\mathbb{P}(X_m>X_i)\right)^{m-1} \\ &= \int_{\mathbb{R}} (\mathbb{P}(X_i < x))^{m-1} \: f(x) \: dx \\ &= \int_{- \infty}^{+ \infty} \left(\int_{- \infty}^{x} f(x) \: dx\right)^{m-1} \: f(x) \: dx \\ &= \int_{- \infty}^{+ \infty} F(x)^{m-1} \: F'(x) \: dx \\ &= \int_{F(- \infty)}^{F(+ \infty)} x^{m-1} \: dx \\ &= \frac{1}{m}  \end{aligned}$
+
+<center>$\LARGE{\boxed{\mathbb{P}(X_m > \underset{i<m}{max}(X_i)) = \frac{1}{m}}}$</center>
+
+------------------------------------------------------------------------
+
+### Question 2
+
+-   Donner l'espérance de $N$ pour $n = 27$.
+
+#### Réponse :
+
+On a le nombre de records battus après $n$ épreuves : <br>
+$N = \sum\limits_{k=1}^{n} \mathbb{1}_{A_k}$ avec $A_k =$
+"$X_m > \underset{i<m}{max}(X_i)$"
+
+Et d'espérence : <br>
+$\mathbb{E}_n[N] = \sum\limits_{k=1}^{n} \mathbb{P}(A_k) = \sum\limits_{k=1}^{n} \frac{1}{k}$
+
+Pour $n = 27$ : <br>
+$\mathbb{E}_{27}[N] = \sum\limits_{k=1}^{27} \frac{1}{k} = \frac{312536252003}{80313433200} \approx 3,89$
+
+<center>$\LARGE{\boxed{N = \sum\limits_{k=1}^{n} \mathbb{1}_{(X_m > \underset{i<m}{max}(X_i))} \\ \mathbb{E}_n[N] = \sum\limits_{k=1}^{n} \frac{1}{k} \\ \mathbb{E}_{27}[N] \approx 3,89}}$</center>
+
+------------------------------------------------------------------------
+
+### Question 3
+
+-   Calculer ${\rm E}[Y_n]$.
+
+#### Réponse :
+
+$\mathbb{P}(U_1 < U_2) = \int_{0}^{1} \mathbb{P}(U_1 < t) \times 1 \: dt = \int_{0}^{1} t \: dt = \frac{1}{2}$
+
+$\begin{align} \mathbb{P}(U_1 < U_2 < U_3) &= \int_{0}^{1} \mathbb{P}(U_1<t<U_3) \: dt \qquad \text{'proba totales continues'} \\ &\overset{indep}= \int_{0}^{1} \mathbb{P}(U_1<t) \: \mathbb{P}(t<U_3) \: dt \\ &= \int_{0}^{1} \mathbb{P}(U_1 \le t) \: (1-\mathbb{P}(U_3 \le t)) \: dt \\ &= \int_{0}^{1}t(1-t) \: dt \\ &= \frac{1}{6} \end{align}$
+
+<br>
+
+$\begin{aligned} \mathbb{E}[Y_n] &= \mathbb{E} \left[\sum\limits_{i = 1}^{n-1} X_i\right] = \sum\limits_{i = 1}^{n-1} \mathbb{E}[X_i] = \sum\limits_{i = 1}^{n-1}\sum\limits_{k = 0}^{1} \mathbb{P}(X_i = k) \times k = \sum\limits_{i = 1}^{n-1} \mathbb{P}(X_i = 1)\\ &= \sum\limits_{i = 1}^{n-1} \mathbb{P}(U_i < U_{i+1})\\ &\overset{Q1}= \sum\limits_{i = 1}^{n-1} \frac{1}{2}\\ &= \frac{n-1}{2} \end{aligned}$
+
+<center>$\LARGE{\boxed{\mathbb{E}[Y_n] = \frac{n-1}{2}}}$</center>
+
+### Question 4
+
+-   Calculer la valeur de la variance Var$[Y_3]$.
+
+#### Réponse :
+
+$\begin{align} Var(X_1) &= \mathbb{E}[X_1^2] - \mathbb{E}[X_1]^2\\ &= \sum\limits_{k=0}^{1} \mathbb{P}(X_1 = k).k^2 \; - \;  \left(\sum\limits_{k=0}^{1} \mathbb{P}(X_1 = k).k\right)^2 \\ &= \mathbb{P}(X_1 = 1) \; - \; (\mathbb{P}(X_1 = 1))^2 \\ &= \frac{1}{2} - \frac{1}{4} \\ &= \frac{1}{4} \end{align}$
+
+<center>$\LARGE{\boxed{Var(X_1) = \frac{1}{4}}}$</center>
+
+<br> <br>
+
+$\begin{align} cov(X_1,X_2) &= \mathbb{E}[X_1.X_2] - \mathbb{E}[X_1]\mathbb{E}[X_2] \\ &= \frac{1}{6} - \frac{1}{4} \\ &= -\frac{1}{12} \end{align}$
+
+car :
+
+$\begin{align} \mathbb{E}[X_1.X_2] &= \sum\limits_{k=0}^{1} \mathbb{P}(X_1.X_2 = k).k \\ &= \mathbb{P}(X_1.X_2 = 1) \\ &= \mathbb{P}(X_1 = 1 \: \cap \: X_2 = 1) \\ &= \mathbb{P}(U_1 < U_2 < U_3) \\ &\overset{Q3}= \frac{1}{6} \end{align}$
+
+<br>
+
+<center>$\LARGE{\boxed{cov(X_1,X_2) = -\frac{1}{12}}}$</center>
+
+<br> <br>
+
+$\begin{align} Var(Y_3) &= Var(X_1 + X_2) \\ &= Var(X_1) + Var(X_2) + 2.cov(X_1,X_2) \\ &\overset{Q4}= \frac{1}{3} \end{align}$
+
+<center>$\LARGE{\boxed{Var(Y_3) = \frac{1}{3}}}$</center>
+
+------------------------------------------------------------------------
+
+### Question 5
+
+-   Calculer Var$[Y_n]$ pour tout $n \geq 2$.
+
+#### Réponse :
+
+$\begin{align} Var(Y_n) &= Var\left(\sum\limits_{i=1}^{n-1} X_i\right) \\ &= \mathbb{E}\left[\left(\sum\limits_{i=1}^{n-1}X_i\right)^2\right] - \mathbb{E}\left[\sum\limits_{i=1}^{n-1}X_i\right]^2 \\ &= \mathbb{E}\left[\left(\sum\limits_{i=1}^{n-1}X_i\right)^2\right] - \left(\sum\limits_{i=1}^{n-1}\mathbb{E}\left[X_i\right]\right)^2 \\ &= \mathbb{E}\left[\left(\sum\limits_{i=1}^{n-1}X_i \right)\times\left(\sum\limits_{i=1}^{n-1}X_i\right)\right] - \left(\sum\limits_{i=1}^{n-1}\mathbb{E}[X_i] \times \sum\limits_{i=1}^{n-1}\mathbb{E}[X_i]\right) \\ &= \sum\limits_{i=1}^{n-1}\mathbb{E}[X_i^2] \: - \: \sum\limits_{i=1}^{n-1}\mathbb{E}[X_i]^2 + 2 \times \sum\limits_{i=1}^{n-2}\mathbb{E}[X_i.X_{i+1}] - 2 \times \sum\limits_{i=1}^{n-2}\mathbb{E}[X_i].\mathbb{E}[X_{i+1}]\\ &= \sum\limits_{i=1}^{n-1} Var(X_i) + 2 \times \left(\sum\limits_{i=1}^{n-2}\mathbb{E}[X_i.X_{i+1}] - \times \sum\limits_{i=1}^{n-2}\mathbb{E}[X_i].\mathbb{E}[X_{i+1}]\right) \\ &= \sum\limits_{i=1}^{n-1} Var(X_i) + 2 \times \sum\limits_{i=1}^{n-2}cov(X_i,X_{i+1})\end{align}$
+
+<div align='right'> $\Large\text{CQFD}$ </div>
+<br>
+Dans notre cas : 
+
+$\begin{align} Var(Y_n) &= \sum\limits_{i=1}^{n-1} Var(X_i) + 2 \times \sum\limits_{i=1}^{n-2}cov(X_i,X_{i+1}) \\ &\overset{Q4}= \sum\limits_{i=1}^{n-1} \frac{1}{4} - 2\times \sum\limits_{i=1}^{n-2} \frac{1}{12} \\ &= \frac{n-1}{4} - \frac{n-2}{6} \\ &= \frac{n+1}{12} \end{align}$
+
+<center>$\LARGE{\boxed{Var(Y_n) = \frac{n+1}{12}}}$</center>
+
+------------------------------------------------------------------------
+
+### Question 6
+
+-   Combien de tirages suffisent pour qu'avec une probabilité supérieure
+    à 0.99, $A_{n-1}$ soit proche de la valeur 1/2 à $10^{-2}$ près.
+
+#### Réponse :
+
+On utilise l'inégalité de Tchebychev : 
+
+Dans le cas général : $\mathbb{P}(|X-\mathbb{E}[X]|>k\sigma) \le \frac{1}{k^2}$
+
+Ici : $\mathbb{P}(|A_{n-1}-\frac{1}{2}|>10^{-2}) \le \frac{Var(A_{n-1})}{(10^{-2})^2}$
+
+On cherche donc n tel que : $\frac{n+1}{12(n-1)^2} = 10^{-6} \Rightarrow \lceil n \rceil = 83336$
+
+<center>$\LARGE{\fbox{Il faut faire au moins 83336 tirages}}$</center>
+
+------------------------------------------------------------------------
+
+### Question 7
+
+-   Déterminer la valeur de $c$.
+
+#### Réponse :
+
+$\begin{align} \mathbb{P}((X,Y) \in \mathbb{R}^2) &= \int_{\mathbb{R}^2}f(x,y) \: dx \: dy \\ &=  \int_{- \infty}^{+ \infty} \int_{- \infty}^{+ \infty} c.x.y^2.\mathbb{1}_D(x,y) \: dx \: dy \\ &= \int_{y = 0}^{1} \int_{x = 0}^{y} c.x.y^2 \: dx \: dy \\ &= \int_{0}^{1} c.y^2 \left[\frac{x^2}{2}\right]_{0}^{y} \: dy \\ &= \left[\frac{c.y^5}{10}\right]_{0}^{1} \\ &= \frac{c}{10}\end{align}$
+
+On a par donc que :
+
+$\mathbb{P}((X,Y) \in \mathbb{R}^2) = 1 \Rightarrow c = 10$
+
+<center>$\LARGE{\boxed{c = 10}}$</center>
+
+
+------------------------------------------------------------------------
+
+### Question 8
+
+-   Déterminer la fonction de répartition de la variable $Y$. Donner sa
+    valeur au point $t = 2/3$.
+
+#### Réponse :
+
+$\begin{align} f_Y(t) &= \int_{\mathbb{R}} f(x,t) \: dx \\ &= \int_{- \infty}^{+ \infty} 10.c.t^2.\mathbb{1}_D(x,t) \: dx \\ &= \int_{0}^{t} 10.c.t^2 \: dx \\ &= \left[\frac{10.x^2.t^2}{2}\right]_{0}^{t} \\ &= 5t^4 \end{align}$
+
+<center>$\LARGE{\boxed{F_Y(t) = \begin{cases} 0 \; si \; t < 0 \\ t^5 \; si \; t \in[0,1] \\ 1 \; si \; t > 1 \end{cases}}  \; et \; \boxed{f_Y(\frac{2}{3}) = \frac{32}{243}}}$</center>
+
+------------------------------------------------------------------------
+
+### Question 9
+
+-   Ecrire un algorithme de simulation d'un couple de densité $f(x,y)$.
+
+#### Réponse :
+
+On calcul : $f_X^{Y=y}(t) = \frac{10.t.y^2.\mathbb{1}_D(t,y)}{5y^4}= \frac{2t}{y^2}.\mathbb{1}_{[0,y]}(t)$
+<br><br><br>
+Avec l'algorithme du rejet :
+
+On a juste a simuler $Y$ et $Y|X=x$ avec :
+$\begin{cases}F_Y(t) = t^5 \\ F_X^{Y=y}(t) = \left(\frac{t}{y}\right)^2 \end{cases}$
+<br><br>
+
+La densité de $Y$ se simule avec :
+$Y \longleftarrow \mathbb{U}(0,1)^{5}$
+
+
+
+Et la denisté de $X<t|Y=y$ se simule avec :
+$X \longleftarrow Y\times(\mathbb{U}(0,1))^{\frac{1}{2}}$
+
+
+
+On retrouve donc $f(x,y)$ avec :
+$f(x,y) = f(x) \: f(y|x)$
+
+<br>
+
+<center>$\boxed{\large{\text{Algo du rejet :} \\Répéter \\ X \longleftarrow \mathbb{U}(0,1) \\  Y \longleftarrow \mathbb{U}(0,1) \\ Tant \: que \: X \le Y: \\ \qquad f \longleftarrow 10XY^2 \\ Fin}} \boxed{\large{\text{Algo d'inversion :} \\ Y \longleftarrow 5\:\mathbb{U}(0,1)^4 \\  X \longleftarrow Y \times \sqrt{\mathbb{U}(0,1)} \\ f \longleftarrow XY \\ Fin}}$</center>
+
+------------------------------------------------------------------------
+
+### Question 10
+
+-   On pose $Z = X Y$. Déterminer la densité de la loi de la variable
+    $Z$.
+
+#### Réponse :
+
+On pose $Z' = ln(Z) = ln(XY) = ln(X) + ln(Y)$
+
+Et $\begin{cases} X' = ln(X) \\ Y' = ln(Y) \end{cases}$
+
+On calcule donc $f_{X'} \; \text{et} \; f_{Y'}$ (avec $f_X$ calculé de manière analogue à Q8)
+
+On calcule avec la formule du produit de convolution pour une somme de 2 VA : 
+
+$f_{Z'}(z') = \int_{\mathbb{R}} f_{X'}(t) \times f_{Y'}(z'-t) \: dt$
+
+
+On retrouve $f_Z$ en utilisant notre changement de varibale : $Z = e^{Z'}$
+
+<center>$\LARGE{\boxed{f_Z(z) = \begin{cases} 0 \; si \; z \in ]-\infty,0[ \cup ]1,+\infty[ \\10z(1-\sqrt{z})  \; si \; z \in[0,1] \end{cases}}}$</center>
+
