@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# xsim v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Jan 26 12:51:00 2023
+# Process ID: 104791
+# Current directory: /user/2/.base/duhamale/home/Desktop/Archi/TP2_src_etd
+# Command line: xsim -nolog -source {xsim.dir/work.tb_lecture_memoire/xsim_script.tcl}
+# Log file: 
+# Journal file: /user/2/.base/duhamale/home/Desktop/Archi/TP2_src_etd/xsim.jou
+#-----------------------------------------------------------
+start_gui
+source xsim.dir/work.tb_lecture_memoire/xsim_script.tcl
+source common/run.tcl
+close_sim
