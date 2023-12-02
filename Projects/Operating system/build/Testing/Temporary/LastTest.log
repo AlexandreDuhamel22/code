@@ -1,0 +1,19 @@
+Start testing: Sep 25 17:38 CEST
+----------------------------------------------------------
+Unable to find executable: alloctest
+1/1 Testing: AllTestsAllocator
+1/1 Test: AllTestsAllocator
+Command: ""
+Directory: /Users/alexandreduhamel/Desktop/ensimag/SEPC/sepc-tp1/build
+"AllTestsAllocator" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"AllTestsAllocator" end time: Sep 25 17:38 CEST
+"AllTestsAllocator" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 25 17:38 CEST
