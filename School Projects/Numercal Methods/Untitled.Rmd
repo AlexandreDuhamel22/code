@@ -1,7 +1,0 @@
----
-title: "MNB"
-output: html_document
-date: "2023-05-04"
----
-
-La convergence de $\frac{||x_{k+1}||}{||x_k||}$ vers $|\lambda|$ sera très lente si la valeur propre $\lambda$ de A est très proche d'une autre valeur propre $\mu$ de A, en termes de magnitude. Cela peut se produire si la matrice A est mal conditionnée ou presque singulière. Dans de tels cas, il peut être difficile de distinguer entre les valeurs propres $\lambda$ et $\mu$ en utilisant la méthode de la puissance itérative, car la convergence vers $\lambda$ sera très lente et nécessitera un grand nombre d'itérations pour atteindre la précision souhaitée. Cependant, si l'écart entre $\lambda$ et $\mu$ est suffisamment grand, la convergence vers $\lambda$ sera plus rapide. En général, la méthode de la puissance itérative est plus efficace pour les matrices symétriques bien conditionnées avec des valeurs propres bien séparées.

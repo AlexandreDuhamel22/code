@@ -1,0 +1,6 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /bigsoft/Xilinx/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab work.tb_system -nolog -debug typical -cc gcc 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+ERROR: [XSIM 43-3315] Signal SIGINT received.
