@@ -36,6 +36,11 @@ This directory contains a collection of diverse projects ranging from algorithms
 - **Language**: VHDL
 - **Description**: Implementation of the classic game Space Invaders on an FPGA using VHDL, showcasing skills in digital design and computer architecture.
 
+### Object-Oriented Java Simulation Project
+- **Language**: Java
+- **Overview**: Developed a dynamic simulation suite featuring animated balls with customizable velocities and deceleration mechanics. Implemented various cellular automata including the Schelling Simulator and multiple versions of the Game of Life. Additionally, created intricate boids systems showcasing group behaviors and interactions.
+
+
 ## Installation and Usage
 
 Each project may have specific dependencies and setup instructions. Please refer to the individual project directories for detailed information on how to install and run each project.

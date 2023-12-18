@@ -32,6 +32,10 @@ This directory is a collection of academic projects and exercises designed to de
 - **Language**: R
 - **Description**: Exercises in R covering a range of statistical analyses, from data manipulation to interpretation of results.
 
+### Java Programming Exercises
+- **Language**: Java
+- **Description**: A progressive series of Java exercises starting from fundamental concepts, advancing through essential programming techniques like collections, encapsulation, and inheritance, to build a solid foundation in Java development.
+
 ## Usage
 
 Please navigate to each project's subdirectory for specific details on the project's scope, setup, and execution instructions. Some projects may include documentation or reports written in markdown or LaTeX, which can be viewed directly or compiled with the appropriate software.
