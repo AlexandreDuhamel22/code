@@ -6,7 +6,7 @@ Welcome to my personal projects repository! Here, you'll find a collection of pr
 
 ### Bases of HTML
 - **Description**: A series of self-taught HTML projects demonstrating my journey through learning the basics of web development.
-- **Key Concepts**: HTML5, CSS3, Web Page Structures.
+- **Key Concepts**: HTML, Web Page Structures.
 
 ### Games
 - **Snake Game**
