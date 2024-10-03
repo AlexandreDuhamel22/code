@@ -2,7 +2,7 @@
 
 Welcome to my personal projects repository! Here, you'll find a collection of projects and experiments spanning various domains and technologies. Each project reflects my journey in learning and applying new skills.
 
-![Projects]([https://media.giphy.com/media/Ih5dcHgN4b8zSSI9OQ/giphy.gif])
+![Projects](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTAzZWFib2hudXR6anp1Zmp2ZnY2Zjc5Y3MyMnQ0dzNiNTdtZ200ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GiXbMe92rt9NS/giphy.gif)
 
 ## Projects Overview
 
