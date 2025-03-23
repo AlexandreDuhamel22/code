@@ -92,6 +92,6 @@ Engage with the project: see our stars, forks, and more. Click on any badge to l
 To get started with these projects, clone the repository and navigate to the specific project directory you're interested in:
 
 ```bash
-git clone https://github.com/AlexandreDuhamel22/Personal-Projects.git
-cd Personal-Projects/<project-directory>
+git clone https://github.com/AlexandreDuhamel22/code.git
+cd code/
 ```
