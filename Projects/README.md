@@ -33,7 +33,7 @@ This directory contains a collection of diverse projects ranging from algorithms
 - **Description**: A statistical analysis conducted on earthquake data sets, processed and visualized using R.
 
 ### VHDL_RiscvV
-- **Language**: VHDL  
+- **Language**: VHDL and Assembly
 - **Description**: Implementation of the classic game Space Invaders on an FPGA using VHDL, showcasing skills in digital design and computer architecture.
 
 ### Object-Oriented Java Simulation Project
@@ -51,6 +51,14 @@ This directory contains a collection of diverse projects ranging from algorithms
 ### AI / Number
 - **Language**: Python  
 - **Description**: A machine learning project for handwritten number recognition based on a small dataset found online. You can input an image or draw a number live. It performs well but shows limitations due to the dataset's uniformity; a better dataset or adjustment of the ML/softmax output could improve accuracy.
+
+### IAQF Competition
+- **Language**: Python
+- **Description**: Columbia University submission for the IAQF 2025 student competition. The project analyzes the impact of the “Magnificent 7” tech stocks on index behavior, beta concentration, options volatility, and hedge fund strategies. It includes analytical exploration, empirical simulations, and backtests of modified trading strategies to account for index concentration.
+
+### class_optim
+- **Language**: Python  
+- **Description**: A constraint optimization tool designed to maximize course enrollment at Columbia University. It accounts for base requirements, conditions like “at least,” “at most,” or “9 credits from,” as well as time conflicts. The algorithm outputs an optimal schedule and was successfully used to plan a real semester.
 
 ## Installation and Usage
 
